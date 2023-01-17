@@ -1,0 +1,19 @@
+{
+    "name": "creativestyle/magesuite-reindex-and-cache-clear-notification",
+    "description": "Sends a dashboard notification when index invalidation or cache clear log occurs within a given time",
+    "type": "magento2-module",
+    "homepage": "https://creativestyle.de",
+    "license": "OSL-3.0",
+    "require": {
+        "creativestyle/magesuite-cache": "^1.0.0",
+        "creativestyle/magesuite-index-invalidation-logger": "^1.0.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageSuite\\ReindexAndCacheClearNotification\\": ""
+        }
+    }
+}
