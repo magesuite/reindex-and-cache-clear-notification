@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_cache_flush_system">
+        <observer name="storage_cache_flush_notify" instance="MageSuite\ReindexAndCacheClearNotification\Observer\NotifyAboutCacheFlush" />
+    </event>
+    <event name="adminhtml_cache_flush_all">
+        <observer name="system_cache_clear_notify" instance="MageSuite\ReindexAndCacheClearNotification\Observer\NotifyAboutCacheClear" />
+    </event>
+</config>

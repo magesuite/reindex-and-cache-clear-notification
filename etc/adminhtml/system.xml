@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="system">
+            <group id="index_invalidation_debugger">
+                <field id="is_notification_enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notification enabled</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When enabled the admin will receive a notification when a reindex will happen within the given time.</comment>
+                </field>
+                <field id="opening_time" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                    <label>Opening time</label>
+                    <depends>
+                        <field id="is_notification_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="closing_time" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
+                    <label>Closing time</label>
+                    <depends>
+                        <field id="is_notification_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="cache_cleanup_debugger">
+                <field id="is_notification_enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notification enabled</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        When enabled the admin will receive a notification when the clearing of any important cache will happen within the given time.
+                        The exception is a cache with empty tags, which will notify the admin regardless of the time.
+                    </comment>
+                </field>
+                <field id="opening_time" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                    <label>Opening time</label>
+                    <depends>
+                        <field id="is_notification_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="closing_time" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
+                    <label>Closing time</label>
+                    <depends>
+                        <field id="is_notification_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
