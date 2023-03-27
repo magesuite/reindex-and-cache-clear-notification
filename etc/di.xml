@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Indexer\IndexerInterface">
+        <plugin
+            name="notify_about_reindex"
+            type="MageSuite\ReindexAndCacheClearNotification\Plugin\Framework\Indexer\Indexer\ReindexNotification"
+        />
+    </type>
+    <type name="Magento\Framework\App\Cache\TypeListInterface">
+        <plugin
+            name="notify_about_cache_type_cleanup"
+            type="MageSuite\ReindexAndCacheClearNotification\Plugin\Framework\App\Cache\CacheTypeCleanupNotification"
+        />
+    </type>
+    <type name="Magento\Framework\App\Cache">
+        <plugin
+            name="notify_about_cache_tag_cleanup"
+            type="MageSuite\ReindexAndCacheClearNotification\Plugin\Framework\App\Cache\CacheTagCleanupNotification"
+        />
+    </type>
+    <type name="MageSuite\ReindexAndCacheClearNotification\Service\CacheNotifier">
+        <arguments>
+            <argument name="cacheToWatch" xsi:type="array">
+                <item name="type" xsi:type="array">
+                    <item name="full_page" xsi:type="string">full_page</item>
+                    <item name="block_html" xsi:type="string">block_html</item>
+                </item>
+                <item name="tag" xsi:type="array">
+                    <item name="cat_p" xsi:type="string">cat_p</item>
+                    <item name="cat_c" xsi:type="string">cat_c</item>
+                    <item name="block_html" xsi:type="string">block_html</item>
+                    <item name="empty_tags" xsi:type="string">empty_tags</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
