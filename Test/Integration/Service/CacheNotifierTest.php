@@ -6,8 +6,8 @@ namespace MageSuite\ReindexAndCacheClearNotification\Test\Integration\Service;
 
 class CacheNotifierTest extends \PHPUnit\Framework\TestCase
 {
-    protected const EXPECTED_NOTIFY_TITLE = 'The cache just has been cleared';
-    protected const EXPECTED_NOTIFY_DESCRIPTION = 'The cache of tag cat_c just has been cleared';
+    protected const EXPECTED_NOTIFY_TITLE = 'The cache has just been cleared';
+    protected const EXPECTED_NOTIFY_DESCRIPTION = 'The cache of tag cat_c has just been cleared';
 
     protected ?\Magento\TestFramework\ObjectManager $objectManager;
     protected ?\MageSuite\NotificationDashboard\Api\NotificationRepositoryInterface $notificationRepository;
@@ -50,8 +50,8 @@ class CacheNotifierTest extends \PHPUnit\Framework\TestCase
         $simulatedTime = new \DateTime('01.01.2022 10:00');
         $this->notifier->method('getCurrentTime')->willReturn($simulatedTime);
 
-        $this->notifier->notifyAboutSpecificCacheCleanup('tag', 'cat_c');
-        $this->notifier->notifyAboutSpecificCacheCleanup('tag', 'cat_p');
+        $this->notifier->notifyAboutSpecificCacheCleanup('tag', 'cat_C');
+        $this->notifier->notifyAboutSpecificCacheCleanup('tag', 'CAT_P');
 
         $notifications = $this->notificationRepository->getList()->getItems();
         $notification = array_pop($notifications);

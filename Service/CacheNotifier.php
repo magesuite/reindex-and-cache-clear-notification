@@ -21,19 +21,22 @@ class CacheNotifier extends Notifier
 
     public function notifyAboutSpecificCacheCleanup(string $criteria, string $code): void
     {
+        $code = strtolower($code);
+
         if (!in_array($code, $this->cacheToWatch[$criteria])) {
             return;
         }
 
         $config = $this->configuration->getCacheConfig();
+
         if (!$config->getIsNotificationEnabled()) {
             return;
         }
 
         if ($this->eventOccurredDuringTheGivenTime($this->getCurrentTime(), $config) || $code == "empty_tags") {
             $this->notify(
-                __('The cache just has been cleared')->render(),
-                sprintf(__('The cache of %s %s just has been cleared')->render(), $criteria, $code)
+                __('The cache has just been cleared')->render(),
+                sprintf(__('The cache of %s %s has just been cleared')->render(), $criteria, $code)
             );
         }
     }
