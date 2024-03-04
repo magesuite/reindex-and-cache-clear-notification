@@ -7,6 +7,7 @@ namespace MageSuite\ReindexAndCacheClearNotification\Test\Unit\Service;
 class NotifierTest extends \PHPUnit\Framework\TestCase
 {
     protected ?\Magento\TestFramework\ObjectManager $objectManager;
+    protected ?\Magento\Framework\DataObjectFactory $dataObjectFactory;
 
     /**
      * @var \MageSuite\ReindexAndCacheClearNotification\Service\Notifier

@@ -30,6 +30,7 @@ class NotifyAboutCacheFlushTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @magentoDbIsolation enabled
+     * @magentoDataFixture MageSuite_ReindexAndCacheClearNotification::Test/Integration/_files/collector.php
      */
     public function testIfCacheFlushTriggersObserver(): void
     {

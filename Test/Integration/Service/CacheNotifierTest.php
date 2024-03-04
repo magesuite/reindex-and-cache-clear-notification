@@ -44,6 +44,7 @@ class CacheNotifierTest extends \PHPUnit\Framework\TestCase
      * @magentoConfigFixture default/system/cache_cleanup_debugger/is_notification_enabled 1
      * @magentoConfigFixture default/system/cache_cleanup_debugger/opening_time 07,00,00
      * @magentoConfigFixture default/system/cache_cleanup_debugger/closing_time 23,00,00
+     * @magentoDataFixture MageSuite_ReindexAndCacheClearNotification::Test/Integration/_files/collector.php
      */
     public function testItSendsNotificationCorrectly(): void
     {
